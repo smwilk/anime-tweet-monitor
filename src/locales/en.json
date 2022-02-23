@@ -1,0 +1,9 @@
+{
+  "message": {
+    "app-title": "Anime Tweet Monitor",
+    "app-instruction": "Click one of the top trending anime below and see what people are tweeting!",
+    "return-to-list": "Return to the anime list",
+    "pre-tweet-header": "Tweets about:",
+    "post-tweet-header": ""
+  }
+}

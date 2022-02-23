@@ -1,0 +1,9 @@
+{
+  "message": {
+    "app-title": "アニメツイートモニター",
+    "app-instruction": "ツイートを見たい作品を以下の現在トレンド入り中のアニメより選択してください。",
+    "return-to-list": "アニメリストに戻る",
+    "pre-tweet-header": "",
+    "post-tweet-header": "についてのツイート:"
+  }
+}
