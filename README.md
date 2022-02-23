@@ -10,7 +10,7 @@ This application mainly runs on these technologies:
 
 - [Twitter API v2](https://developer.twitter.com/en/docs/twitter-api) for fetching Tweets.
 - [AniList API v2](https://anilist.gitbook.io/anilist-apiv2-docs/) for fetching anime data.
-- [Vue.js](https://vuejs.org/) and their related libraries ([vue-spinner](https://github.com/greyby/vue-spinner) and [vue-i18n](https://github.com/kazupon/vue-i18n))for application frontend.
+- [Vue.js](https://vuejs.org/) and their related libraries ([vue-spinner](https://github.com/greyby/vue-spinner) and [vue-i18n](https://github.com/kazupon/vue-i18n)) for application frontend.
 - [Node.js](https://nodejs.org/en/) for application backend.
 - [axios](https://github.com/axios/axios) for handling request sending.
 
@@ -32,7 +32,7 @@ This application mainly runs on these technologies:
 <!-- Todo: Add git URL, revise project title -->
 
 ```bash
-git clone
+git clone https://github.com/smwilk/anime-tweet-monitor.git
 cd twitter-project
 ```
 

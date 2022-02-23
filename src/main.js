@@ -5,8 +5,8 @@ import en from './locales/en.json'
 import ja from './locales/ja.json'
 
 export const i18n = createI18n({
-  locale: 'ja', // set locale
-  fallbackLocale: 'en', // set fallback locale
+  locale: 'en', // set locale
+  fallbackLocale: 'ja', // set fallback locale
   messages: { en, ja }
 })
 
