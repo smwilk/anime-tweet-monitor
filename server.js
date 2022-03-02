@@ -1,14 +1,14 @@
 require("dotenv").config()
 const express = require("express")
 const cors = require("cors")
-const axios = require('axios');
+const axios = require("axios")
 
 const app = express()
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
-const port = 5000
+const port = 4112
 
 const twitterApiKey = process.env.TWITTER_API_BEARER_TOKEN
 
@@ -16,12 +16,12 @@ const twitterApiKey = process.env.TWITTER_API_BEARER_TOKEN
 app.get("/anime", (req, res) => {
   // Query (anime title) sent from the client
   // Remove colons from the query to stop the request from breaking
-  const query = req.query?.search.replace(':', ' ')
+  const query = req.query?.search.replace(":", " ")
   const config = {
-    method: 'get',
+    method: "get",
     url: "https://api.twitter.com/2/tweets/search/recent?query=" + encodeURI(query) + "&tweet.fields=possibly_sensitive",
     headers: { 
-      'Authorization': 'Bearer ' + twitterApiKey
+      "Authorization": "Bearer " + twitterApiKey
     }
   }
 
@@ -40,5 +40,5 @@ app.get("/anime", (req, res) => {
 })
 
 app.listen(port, () => {
-	console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port ${port}`)
 })

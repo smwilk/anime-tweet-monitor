@@ -32,14 +32,13 @@ export default {
       required: true
     }
   },
-methods: {
+  methods: {
     /**
     * Returns the anime title in the currently selected language
     * @param {String} anime - Title of the anime selected
     */
     getTitleInSelectedLocale(anime) {
-      const locale = this.$i18n.locale
-      if (this.$i18n.locale === 'en') {
+      if (this.$i18n.locale === "en") {
         return anime.title.romaji
       } else {
         return anime.title.native

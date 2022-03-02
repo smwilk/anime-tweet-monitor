@@ -66,14 +66,13 @@
 </template>
 
 <script>
-import AnimeList from './components/AnimeList.vue'
-import TweetList from './components/TweetList.vue'
-import TwitterWidgetsLoader from 'twitter-widgets'
-import { animeQuery } from './graphql/query'
-import axios from 'axios'
+import AnimeList from "./components/AnimeList.vue"
+import TweetList from "./components/TweetList.vue"
+import { animeQuery } from "./graphql/query"
+import axios from "axios"
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     AnimeList,
     TweetList
@@ -90,15 +89,18 @@ export default {
   },
   mounted: function() {
     // Load the Twitter widgets script
-    let tweetScript = document.createElement('script')
-    tweetScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+    let tweetScript = document.createElement("script")
+    tweetScript.setAttribute("src", "https://platform.twitter.com/widgets.js")
     document.head.appendChild(tweetScript)
-    // Wait for script to load before binding event listener
-    // Arrow functions are necessary here to maintain Vue context in scope
-    // This event emits on the render of each tweet widget on the page
+    /**
+     * Wait for script to load before binding event listener
+     * Arrow functions are necessary here to maintain Vue context in scope
+     * This event emits on the render of each tweet widget on the page
+     * See: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/javascript-api
+     */
     tweetScript.onload = () => {
       window.twttr.events.bind(
-        'rendered',
+        "rendered",
         () => {
           this.loading = false
         }
@@ -109,32 +111,32 @@ export default {
 
   methods: {
     /**
-    * Gets a list of anime from https://graphql.anilist.co using GraphQL
-    */
+     * Gets a list of anime from https://graphql.anilist.co using GraphQL
+     */
     getAnime() {
       const config = {
-        method: 'POST',
-        url: 'https://graphql.anilist.co',
+        method: "POST",
+        url: "https://graphql.anilist.co",
         headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
+          "Content-Type": "application/json",
+          "Accept": "application/json",
         },
         data: {
-            query: animeQuery,
-            // Set the number of pages and how many shows to display per page
-            variables: {
-              page: 1,
-              perPage: 9
-            }
+          query: animeQuery,
+          // Set the number of pages and how many shows to display per page
+          variables: {
+            page: 1,
+            perPage: 10
           }
         }
+      }
 
       axios(config)
         .then((result) => {
           this.animeList = result.data.data.Page.media
         })
         .catch((error) => {
-          console.error('Error fetching anime: ', error)
+          console.error("Error fetching anime: ", error)
         })
     },
     /**
@@ -153,29 +155,29 @@ export default {
       this.loading = true
       this.animeTitle = title
       const config = {
-        method: 'get',
-        url: `http://localhost:5000/anime?search=${title}`
+        method: "get",
+        url: `http://localhost:4112/anime?search=${title}`
       }
 
       axios(config)
         .then(response => {
           // Render the Tweet elements
-          console.log(response)
           this.tweetList = response.data.data
           this.showTweets = true
-          // Load the Twitter Widgets script to re-embedd tweets
+          // Load the Twitter Widgets script to re-embed tweets
+          // See: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/scripting-loading-and-initialization
           window.twttr.widgets.load()
           // If no Tweets were found, show "There are no tweets to show with for this anime."
           if (response.data.length === 0) {
             this.tweetsFound = false
-          }     
+          }
         })
         .catch(error => {
-          console.log('Error fetching Tweets: ', error)
-        });
+          console.log("Error fetching Tweets: ", error)
+        })
     },
     /**
-    Toggles the current langauge
+    Toggles the current language
     * @param {String} lang - Language to switch to, either English or Japanese
     */
     changeLanguage(lang) {

@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import RotateLoader from 'vue-spinner/src/RotateLoader.vue'
+import RotateLoader from "vue-spinner/src/RotateLoader.vue"
 
 export default {
   components: {
@@ -56,7 +56,7 @@ export default {
     tweetList: {
       type: Array,
       // Set default Tweet to show in case there are no Tweets to show
-      default: () => [{id: '20'}],
+      default: () => [{id: "20"}],
     },
     animeTitle: {
       type: String,
