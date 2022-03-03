@@ -164,10 +164,12 @@ export default {
           // Render the Tweet elements
           this.tweetList = response.data.data
           this.showTweets = true
-          // Load the Twitter Widgets script to re-embed tweets
-          // See: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/scripting-loading-and-initialization
+          /**
+          * Load the Twitter Widgets script to re-embed Tweets
+          * See: https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/scripting-loading-and-initialization
+          */
           window.twttr.widgets.load()
-          // If no Tweets were found, show "There are no tweets to show with for this anime."
+          // If no Tweets were found, show "There are no Tweets to show with for this anime."
           if (response.data.length === 0) {
             this.tweetsFound = false
           }
@@ -177,7 +179,7 @@ export default {
         })
     },
     /**
-    Toggles the current language
+    * Toggles the current language
     * @param {String} lang - Language to switch to, either English or Japanese
     */
     changeLanguage(lang) {

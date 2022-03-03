@@ -40,7 +40,7 @@
     </div>
     <!--If no Tweets were found, show the message to notify that no Tweets were found-->
     <h3 v-else>
-      There are no tweets to show with for this anime.
+      There are no Tweets to show with for this anime.
     </h3>
   </div>
 </template>

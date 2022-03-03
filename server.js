@@ -3,10 +3,21 @@ const express = require("express")
 const cors = require("cors")
 const axios = require("axios")
 
+
+
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(cors())
+
+/**
+ * Web browsers prevent unknown websites from accessing application programming interfaces and services.
+ * Implement CORS (cross-origin resource sharing) on this server, so our client can access the server in local development.
+ */
+const allowedOrigins = ['http://localhost:8080']
+const options = {
+  origin: allowedOrigins
+}
+app.use(cors(options))
 
 const port = 4112
 

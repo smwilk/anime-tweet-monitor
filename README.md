@@ -2,6 +2,19 @@
 
 This is a small application to get recent Tweets about trending anime shows.
 
+## How the application works
+
+This application shows a list of currently trending anime shows retrieved from the [AniList API v2](https://anilist.gitbook.io/anilist-apiv2-docs/).
+The user can select a preferred language (English or Japanese) at the top of the screen.
+
+![Anime panel screen](./src/assets/anime-panel.png)
+
+When a user clicks on one of the shows displayed on the UI, the screen will switch to a list of Tweets about the anime selected, retrieved from [Twitter API v2](https://developer.twitter.com/en/docs/twitter-api).
+
+![Tweet list](./src/assets/tweet-list.png)
+
+To return to the anime panel page, click *Return to the anime list* (or *アニメリストに戻る* in the Japanese UI).
+
 ## Technologies used
 
 This application mainly runs on these technologies:
@@ -9,7 +22,7 @@ This application mainly runs on these technologies:
 - [Twitter API v2](https://developer.twitter.com/en/docs/twitter-api) for fetching Tweets.
 - [AniList API v2](https://anilist.gitbook.io/anilist-apiv2-docs/) for fetching anime data.
 - [Vue.js](https://vuejs.org/) and their related libraries ([vue-spinner](https://github.com/greyby/vue-spinner) and [vue-i18n](https://github.com/kazupon/vue-i18n)) for application frontend.
-- [Node.js](https://nodejs.org/en/) for application backend.
+- [Node.js](https://nodejs.org/en/) and [Express.js](https://expressjs.com/) for application backend.
 - [axios](https://github.com/axios/axios) for handling request sending.
 
 ## What you need to run this application
