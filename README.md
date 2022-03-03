@@ -13,7 +13,7 @@ When a user clicks on one of the shows displayed on the UI, the screen will swit
 
 ![Tweet list](./src/assets/tweet-list.png)
 
-To return to the anime panel page, click *Return to the anime list* (or *アニメリストに戻る* in the Japanese UI).
+To return to the anime panel page, click **Return to the anime list** (or **アニメリストに戻る** in the Japanese UI).
 
 ## Technologies used
 
